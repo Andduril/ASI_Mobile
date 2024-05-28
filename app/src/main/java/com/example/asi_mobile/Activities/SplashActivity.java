@@ -1,4 +1,4 @@
-package com.example.asi_mobile;
+package com.example.asi_mobile.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import com.example.asi_mobile.R;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -26,7 +28,7 @@ public class SplashActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(SplashActivity.this,UsernameActivity.class));
+                startActivity(new Intent(SplashActivity.this, UsernameActivity.class));
                 finish();
             }
         },3000);

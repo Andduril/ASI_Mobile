@@ -1,6 +1,5 @@
-package com.example.asi_mobile;
+package com.example.asi_mobile.Activities;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -10,8 +9,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
+import com.example.asi_mobile.R;
+import com.example.asi_mobile.UserAdapter;
+import com.example.asi_mobile.Models.User;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -19,7 +19,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
-import com.google.firebase.firestore.DocumentReference;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -67,25 +66,26 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    // TODO: create firebaseUtils.sendMessage(string content) etc...
     public void onClickAddUser(View view) {
-
-        DatabaseReference usersRef = database.getReference("users");
-        DatabaseReference newUserRef = usersRef.push(); // Génère une clé unique pour le nouvel utilisateur
-
-        User newUser = new User("frodu", "frodu.sacquet@gmail.com");
-
-        newUserRef.setValue(newUser)
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()) {
-                            Log.i("DB", "User added successfully");
-                            Toast.makeText(MainActivity.this, "User added", Toast.LENGTH_SHORT).show();
-                        } else {
-                            Log.e("DB", "Error adding user: " + task.getException());
-                        }
-                    }
-                });
+//
+//        DatabaseReference usersRef = database.getReference("users");
+//        DatabaseReference newUserRef = usersRef.push(); // Génère une clé unique pour le nouvel utilisateur
+//
+//        User newUser = new User("frodu", "frodu.sacquet@gmail.com");
+//
+//        newUserRef.setValue(newUser)
+//                .addOnCompleteListener(new OnCompleteListener<Void>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<Void> task) {
+//                        if (task.isSuccessful()) {
+//                            Log.i("DB", "User added successfully");
+//                            Toast.makeText(MainActivity.this, "User added", Toast.LENGTH_SHORT).show();
+//                        } else {
+//                            Log.e("DB", "Error adding user: " + task.getException());
+//                        }
+//                    }
+//                });
     }
 
     public void OnClickQuitterChat(View view) {
