@@ -1,17 +1,17 @@
-package com.example.asi_mobile.model;
+package com.example.asi_mobile.Models;
 
 
 import com.google.firebase.Timestamp;
 
-public class UserModel {
+public class User {
     private String username;
     private String email;
     private Timestamp createdTimestamp;
 
-    public UserModel() {
+    public User() {
     }
 
-    public UserModel(String username, String email, Timestamp createdTimestamp) {
+    public User(String username, String email, Timestamp createdTimestamp) {
         this.username = username;
         this.email = email;
         this.createdTimestamp = createdTimestamp;

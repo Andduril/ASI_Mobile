@@ -1,4 +1,4 @@
-package com.example.asi_mobile;
+package com.example.asi_mobile.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,7 +14,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.example.asi_mobile.utils.AndroidUtilities;
+import com.example.asi_mobile.R;
+import com.example.asi_mobile.Utils.AndroidUtils;
 
 public class UsernameActivity extends AppCompatActivity {
 
@@ -37,7 +37,7 @@ public class UsernameActivity extends AppCompatActivity {
         connectionBtn.setOnClickListener(v->{
             String usernameInputContent = usernameInput.getText().toString();
             //Test: OK
-            AndroidUtilities.print(getApplicationContext(),usernameInputContent);
+            AndroidUtils.print(getApplicationContext(),usernameInputContent);
 
         });
 
@@ -53,7 +53,7 @@ public class UsernameActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(UsernameActivity.this,MainActivity.class));
+                startActivity(new Intent(UsernameActivity.this, MainActivity.class));
                 finish();
             }
         },5000);

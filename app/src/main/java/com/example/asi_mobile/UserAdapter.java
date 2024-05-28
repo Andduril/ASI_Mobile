@@ -7,14 +7,16 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.asi_mobile.Models.User;
+
 import java.util.List;
 
 public class UserAdapter extends RecyclerView.Adapter<UserViewHolder> {
 
-    private List<User> liste_users;
+    private List<User> userList;
 
-    public UserAdapter(List<User> listeUsers) {
-        liste_users = listeUsers;
+    public UserAdapter(List<User> users) {
+        userList = users;
     }
 
     @NonNull
@@ -27,11 +29,11 @@ public class UserAdapter extends RecyclerView.Adapter<UserViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull UserViewHolder holder, int position) {
-        holder.MettreAJourLigne(liste_users.get(position));
+        holder.MettreAJourLigne(userList.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return liste_users.size();
+        return userList.size();
     }
 }

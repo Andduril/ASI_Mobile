@@ -6,6 +6,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.asi_mobile.Models.User;
+
 import java.util.Objects;
 
 public class UserViewHolder extends RecyclerView.ViewHolder {
@@ -22,7 +24,7 @@ public class UserViewHolder extends RecyclerView.ViewHolder {
 
     public void MettreAJourLigne(User unUser) {
         if (Objects.nonNull(unUser)) {
-            this.nomTextView.setText(unUser.getName());
+            this.nomTextView.setText(unUser.getUsername());
             this.emailTextView.setText(unUser.getEmail());
         }
     }
