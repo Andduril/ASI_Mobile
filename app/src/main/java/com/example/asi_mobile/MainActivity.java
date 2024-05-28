@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -27,12 +28,14 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView monRecyclerView;
     private List<User> userList;
     private UserAdapter monUserAdapter;
+    private EditText message_saisi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         monRecyclerView = findViewById(R.id.recyclerView_chat);
+        message_saisi = findViewById(R.id.editText_message);
 
         userList = new ArrayList<>();
         database = FirebaseDatabase.getInstance("https://asi-mobile-1bc67-default-rtdb.europe-west1.firebasedatabase.app/");
@@ -67,10 +70,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void onClickAddUser(View view) {
 
+        String message = message_saisi.getText().toString();
         DatabaseReference usersRef = database.getReference("users");
         DatabaseReference newUserRef = usersRef.push(); // Génère une clé unique pour le nouvel utilisateur
 
-        User newUser = new User("frodu", "frodu.sacquet@gmail.com");
+        User newUser = new User("frodu", message);
 
         newUserRef.setValue(newUser)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
