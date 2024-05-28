@@ -1,5 +1,6 @@
 package com.example.asi_mobile;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,15 +17,17 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
 import java.util.ArrayList;
 import java.util.List;
+import com.google.firebase.firestore.DocumentReference;
+
 
 public class MainActivity extends AppCompatActivity {
     private FirebaseDatabase database;
     private RecyclerView monRecyclerView;
     private List<User> userList;
     private UserAdapter monUserAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

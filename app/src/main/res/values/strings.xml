@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">ASI_mobile</string>
+    <string name="app_name" translatable="false">ASI_mobile</string>
+    <string name="enter_your_username">Enter your username</string>
+    <string name="username">Username</string>
+    <string name="connexion">Connection</string>
+    <string name="email" translatable="false">Email</string>
 </resources>
