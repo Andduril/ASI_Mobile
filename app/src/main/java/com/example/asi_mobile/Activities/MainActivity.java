@@ -48,14 +48,12 @@ public class MainActivity extends AppCompatActivity {
         usersRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                int compteur = 0;
+                userList.clear();
                 for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
-                    compteur++;
                     User user = userSnapshot.getValue(User.class);
                     Log.d("elodie",user.toString());
                     userList.add(user);
                 }
-                Toast.makeText(MainActivity.this ,"Compteur ="+compteur, Toast.LENGTH_SHORT).show();
                 monUserAdapter.notifyDataSetChanged();
             }
 
