@@ -8,4 +8,5 @@
     <string name="quitter_le_chat">Salir del chat</string>
     <string name="message">Mensaje</string>
     <string name="made_with">Hecho con ❤️</string>
+    <string name="send_my_location">Enviar mi ubicación</string>
 </resources>

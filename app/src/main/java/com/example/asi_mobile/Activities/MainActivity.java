@@ -16,6 +16,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.asi_mobile.Models.Message;
 import com.example.asi_mobile.R;
@@ -33,10 +34,6 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     private static final int MY_PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 1;
     private FirebaseDatabase database;
-    private RecyclerView monRecyclerView;
-    private LocationManager locationManager;
-    private LocationListener locationListener;
-
     private double latitude;
     private double longitude;
     private List<Message> messagesList;
@@ -47,16 +44,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        monRecyclerView = findViewById(R.id.recyclerView_chat);
+        RecyclerView monRecyclerView = findViewById(R.id.recyclerView_chat);
         message_saisi = findViewById(R.id.editText_message);
-
         messagesList = new ArrayList<>();
         database = FirebaseDatabase.getInstance("https://asi-mobile-1bc67-default-rtdb.europe-west1.firebasedatabase.app/");
 
         getDataFirebase();
         messageAdapter = new MessageAdapter(messagesList);
-        this.monRecyclerView.setAdapter(messageAdapter);
-        this.monRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        monRecyclerView.setAdapter(messageAdapter);
+        monRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         // Permission de localisation
         if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -103,8 +99,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void getLocation() {
-        locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
-        locationListener = new LocationListener() {
+        LocationManager locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+        LocationListener locationListener = new LocationListener() {
             @Override
             public void onLocationChanged(@NonNull Location location) {
                 MainActivity.this.latitude = location.getLatitude();
@@ -112,10 +108,12 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onProviderEnabled(@NonNull String provider) {}
+            public void onProviderEnabled(@NonNull String provider) {
+            }
 
             @Override
-            public void onProviderDisabled(@NonNull String provider) {}
+            public void onProviderDisabled(@NonNull String provider) {
+            }
         };
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
@@ -126,16 +124,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        switch (requestCode) {
-            case MY_PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION: {
-                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    // Permission accordée, appeler getLocation()
-                    getLocation();
-                } else {
-                    // Permission refusée, affichez un message à l'utilisateur
-                    Toast.makeText(this, "Permission refusée pour la localisation", Toast.LENGTH_SHORT).show();
-                }
-                return;
+        if (requestCode == MY_PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // Permission accordée, appeler getLocation()
+                getLocation();
+            } else {
+                // Permission refusée, affichez un message à l'utilisateur
+                Toast.makeText(this, "Permission refusée pour la localisation", Toast.LENGTH_SHORT).show();
             }
         }
     }

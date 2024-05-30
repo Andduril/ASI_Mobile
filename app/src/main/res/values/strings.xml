@@ -9,4 +9,5 @@
     <string name="message">Message</string>
     <string name="textview" translatable="false">TextView</string>
     <string name="made_with">Made with ❤️</string>
+    <string name="send_my_location">Send my location</string>
 </resources>
