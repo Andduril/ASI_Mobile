@@ -25,10 +25,7 @@ public class MessageViewHolder extends RecyclerView.ViewHolder {
 
     public void MettreAJourLigne(Message unMessage) {
         if (Objects.nonNull(unMessage)) {
-            Calendar cal = Calendar.getInstance(Locale.ENGLISH);
-            cal.setTimeInMillis(unMessage.getTimestamp() * 1000);
-            String date = DateFormat.format("dd-MM-yyyy", cal).toString();
-            String chaineAffiche = unMessage.getUserId() + " : " + unMessage.getContent() + " (" + date + ")";
+            String chaineAffiche = unMessage.getUserId() + " : " + unMessage.getContent() + " (" + unMessage.getFormatedDate() + ")";
             if (Objects.equals(unMessage.getUserId(), "fakeID"))//Si le userId est celui de l'utilisateur connecté
             {
                 this.contentConnectedUserTextView.setText(chaineAffiche);
