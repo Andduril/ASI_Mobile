@@ -35,8 +35,6 @@ public class MainActivity extends AppCompatActivity {
     private static final int MY_PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 1;
     private FirebaseDatabase database;
     private RecyclerView monRecyclerView;
-    private List<User> userList;
-    private UserAdapter monUserAdapter;
     private LocationManager locationManager;
     private LocationListener locationListener;
 

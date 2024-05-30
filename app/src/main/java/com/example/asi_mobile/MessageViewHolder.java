@@ -39,7 +39,7 @@ public class MessageViewHolder extends RecyclerView.ViewHolder {
                 this.contentConnectedUserTextView.setText("");
             }
             this.userIdTextView.setText(unMessage.getUserId());
-            this.timestampTextView.setText(unMessage.getTimestamp());
+            this.timestampTextView.setText(unMessage.getFormatedDate());
         }
     }
 }
