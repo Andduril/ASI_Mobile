@@ -41,6 +41,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+
     <EditText
         android:id="@+id/editText_message"
         android:layout_width="0dp"
@@ -52,5 +53,16 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/SendLocationBtnId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        android:onClick="OnClickSendLocation"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/SendMessageBtn"
+        app:layout_constraintStart_toEndOf="@+id/btn_quitter_chat"
+        app:layout_constraintTop_toBottomOf="@+id/editText_message" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

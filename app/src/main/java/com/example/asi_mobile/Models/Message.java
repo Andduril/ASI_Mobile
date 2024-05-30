@@ -1,5 +1,6 @@
 package com.example.asi_mobile.Models;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Message {
@@ -39,4 +40,10 @@ public class Message {
     public void setUserId(String userId) {
         this.userId = userId;
     }
+
+    public String getFormatedDate() {
+        Date date = new Date(this.timestamp);
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        return formatter.format(date);
+    };
 }
