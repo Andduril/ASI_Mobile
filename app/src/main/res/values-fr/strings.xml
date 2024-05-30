@@ -3,4 +3,10 @@
     <string name="enter_your_username">Saisissez un nom d\'utilisateur</string>
     <string name="username">Nom d\'utilisateur</string>
     <string name="connexion">Connexion</string>
+    <string name="email">Email</string>
+    <string name="send_message">Envoyer le message</string>
+    <string name="quitter_le_chat">Quitter le chat</string>
+    <string name="message">Message</string>
+    <string name="made_with">Fait avec ❤️</string>
+    <string name="send_my_location">Envoyer ma localisation</string>
 </resources>

@@ -8,26 +8,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="TextView" />
-
-    <TextView
-        android:id="@+id/textView_userId"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="TextView" />
-
-    <TextView
-        android:id="@+id/textView_timestamp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="TextView" />
+        android:text="@string/textview"
+        android:textAlignment="textStart" />
 
     <TextView
         android:id="@+id/textView_content_connectedUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="TextView" />
+        android:text="@string/textview"
+        android:textAlignment="textEnd" />
 </LinearLayout>

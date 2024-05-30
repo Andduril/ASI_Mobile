@@ -1,6 +1,5 @@
 package com.example.asi_mobile.Models;
 
-
 import com.google.firebase.Timestamp;
 
 public class User {
