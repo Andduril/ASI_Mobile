@@ -3,16 +3,14 @@ package com.example.asi_mobile.Utils;
 
 import android.util.Log;
 
-import androidx.annotation.NonNull;
-
 import com.example.asi_mobile.Models.Message;
 import com.example.asi_mobile.Models.User;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.Timestamp;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.DatabaseReference;
+
+import java.util.concurrent.atomic.AtomicBoolean;
 
 
 public class FirebaseUtils {
@@ -52,18 +50,14 @@ public class FirebaseUtils {
     // sendMessages
     public static void sendMessage(String content, String userId) {
         Message newMessage = new Message(content, userId);
-
         DatabaseReference newMessageRef = messagesAccessor.push();
 
         newMessageRef.setValue(newMessage)
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()) {
-                            Log.i("MessageAccessor", "Message sent");
-                        } else {
-                            Log.e("MessageAccessor", "Error messages :" + task.getException());
-                        }
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        Log.i("MessageAccessor", "Message sent");
+                    } else {
+                        Log.e("MessageAccessor", "Error messages :" + task.getException());
                     }
                 });
     }
