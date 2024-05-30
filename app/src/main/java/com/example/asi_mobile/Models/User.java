@@ -3,8 +3,7 @@ package com.example.asi_mobile.Models;
 import com.google.firebase.Timestamp;
 
 public class User {
-    private String username;
-    private String email;
+    private String username, email;
     private Timestamp createdTimestamp;
 
     public User() {

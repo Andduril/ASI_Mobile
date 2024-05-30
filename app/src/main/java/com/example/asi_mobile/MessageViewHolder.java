@@ -1,20 +1,16 @@
 package com.example.asi_mobile;
 import com.example.asi_mobile.Models.Message;
 
-import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.Calendar;
-import java.util.Locale;
 import java.util.Objects;
 
 public class MessageViewHolder extends RecyclerView.ViewHolder {
-    private TextView contentTextView;
-    private TextView contentConnectedUserTextView;
+    private final TextView contentTextView, contentConnectedUserTextView;
 
     public MessageViewHolder(@NonNull View itemView) {
         super(itemView);

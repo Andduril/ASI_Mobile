@@ -20,8 +20,7 @@ import com.example.asi_mobile.R;
 
 public class UsernameActivity extends AppCompatActivity {
 
-    EditText usernameInput;
-    EditText emailInput;
+    EditText usernameInput, emailInput;
     Button connectionBtn;
     ProgressBar loginProgressBar;
     @Override

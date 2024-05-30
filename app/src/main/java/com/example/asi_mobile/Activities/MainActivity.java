@@ -34,8 +34,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     private static final int MY_PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 1;
     private FirebaseDatabase database;
-    private double latitude;
-    private double longitude;
+    private double latitude, longitude;
     private List<Message> messagesList;
     private MessageAdapter messageAdapter;
     private EditText message_saisi;
@@ -69,10 +68,11 @@ public class MainActivity extends AppCompatActivity {
         DatabaseReference messagesRef = rootRef.child("messages");
         messagesRef.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 messagesList.clear();
                 for (DataSnapshot messageSnapshot : dataSnapshot.getChildren()) {
                     Message message = messageSnapshot.getValue(Message.class);
+                    assert message != null;
                     Log.d("perso",message.toString());
                     messagesList.add(message);
                 }
@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onCancelled(DatabaseError databaseError) {
+            public void onCancelled(@NonNull DatabaseError databaseError) {
                 // Gérez l'erreur ici
             }
         });
