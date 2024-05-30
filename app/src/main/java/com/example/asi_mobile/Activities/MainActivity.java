@@ -21,6 +21,7 @@ import android.widget.Toast;
 import com.example.asi_mobile.Models.Message;
 import com.example.asi_mobile.R;
 import com.example.asi_mobile.MessageAdapter;
+import com.example.asi_mobile.Utils.AndroidUtils;
 import com.example.asi_mobile.Utils.FirebaseUtils;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -47,6 +48,8 @@ public class MainActivity extends AppCompatActivity {
         message_saisi = findViewById(R.id.editText_message);
         messagesList = new ArrayList<>();
         database = FirebaseDatabase.getInstance("https://asi-mobile-1bc67-default-rtdb.europe-west1.firebasedatabase.app/");
+        //String userKey = AndroidUtils.getValue(this, "userKey");
+        //AndroidUtils.print(this, "User key: " + userKey);
 
         getDataFirebase();
         messageAdapter = new MessageAdapter(messagesList);

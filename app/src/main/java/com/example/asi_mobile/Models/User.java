@@ -1,27 +1,24 @@
 package com.example.asi_mobile.Models;
 
-import com.google.firebase.Timestamp;
 
 public class User {
-    private String username, email;
-    private Timestamp createdTimestamp;
+    private String name, email;
 
     public User() {
     }
 
-    public User(String username, String email, Timestamp createdTimestamp) {
-        this.username = username;
+    public User(String name, String email) {
+        this.name = name;
         this.email = email;
-        this.createdTimestamp = createdTimestamp;
     }
 
 
-    public String getUsername() {
-        return username;
+    public String getName() {
+        return name;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getEmail() {
@@ -32,11 +29,4 @@ public class User {
         this.email = email;
     }
 
-    public Timestamp getCreatedTimestamp() {
-        return createdTimestamp;
-    }
-
-    public void setCreatedTimestamp(Timestamp createdTimestamp) {
-        this.createdTimestamp = createdTimestamp;
-    }
 }

@@ -24,7 +24,7 @@ public class FirebaseUtils {
     public static DatabaseReference addUser(String name, String email){
         DatabaseReference usersRef = database.getReference().child("users");
         DatabaseReference newUserRef = usersRef.push();
-        User newUser = new User(name, email, Timestamp.now());
+        User newUser = new User(name, email);
         newUserRef.setValue(newUser);
         return newUserRef;
     }
@@ -34,7 +34,7 @@ public class FirebaseUtils {
         DataSnapshot dataSnapshot = usersRef.get().getResult();
         for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
             User user = userSnapshot.getValue(User.class);
-            if(user.getUsername().equals(username) && user.getEmail().equals(email)){
+            if(user.getName().equals(username) && user.getEmail().equals(email)){
                 return user;
             }
         }

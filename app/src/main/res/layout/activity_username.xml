@@ -63,6 +63,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/btn_primary_rounded"
+            android:onClick="OnClickConnection"
             android:text="@string/connexion"
             android:id="@+id/connectionBtn"/>
     </LinearLayout>
