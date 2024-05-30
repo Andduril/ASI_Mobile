@@ -1,12 +1,13 @@
 package com.example.asi_mobile.Models;
 
+import android.annotation.SuppressLint;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Message {
-    String content;
+    String content, userId;
     Long timestamp;
-    String userId;
 
     // constructeur vide pour firebase
     public Message() {}
@@ -43,7 +44,7 @@ public class Message {
 
     public String getFormatedDate() {
         Date date = new Date(this.timestamp);
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         return formatter.format(date);
     };
 }

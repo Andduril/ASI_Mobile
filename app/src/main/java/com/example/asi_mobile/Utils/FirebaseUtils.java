@@ -10,14 +10,11 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.DatabaseReference;
 
-import java.util.concurrent.atomic.AtomicBoolean;
-
-
 public class FirebaseUtils {
-    private static FirebaseDatabase database = FirebaseDatabase.getInstance("https://asi-mobile-1bc67-default-rtdb.europe-west1.firebasedatabase.app/");
+    private static final FirebaseDatabase database = FirebaseDatabase.getInstance("https://asi-mobile-1bc67-default-rtdb.europe-west1.firebasedatabase.app/");
 
     // accès au dossier messages de la bdd
-    private static DatabaseReference messagesAccessor = database.getReference("messages");
+    private static final DatabaseReference messagesAccessor = database.getReference("messages");
 
     //todo
     //////////////////////////////USER_MODEL/////////////////////////////

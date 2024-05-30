@@ -11,9 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 public class MessageAdapter extends RecyclerView.Adapter<MessageViewHolder> {
-
-    private List<Message> messageList;
-
+    private final List<Message> messageList;
     public MessageAdapter(List<Message> messages) {
         messageList = messages;
     }
