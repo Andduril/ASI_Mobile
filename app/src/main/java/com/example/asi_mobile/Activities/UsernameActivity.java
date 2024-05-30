@@ -1,5 +1,7 @@
 package com.example.asi_mobile.Activities;
 
+import static com.example.asi_mobile.Utils.AndroidUtils.print;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -15,7 +17,6 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.asi_mobile.R;
-import com.example.asi_mobile.Utils.AndroidUtils;
 
 public class UsernameActivity extends AppCompatActivity {
 
@@ -37,8 +38,7 @@ public class UsernameActivity extends AppCompatActivity {
         connectionBtn.setOnClickListener(v->{
             String usernameInputContent = usernameInput.getText().toString();
             //Test: OK
-            AndroidUtils.print(getApplicationContext(),usernameInputContent);
-
+            print(getApplicationContext(),usernameInputContent);
         });
 
 
