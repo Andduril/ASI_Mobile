@@ -99,6 +99,10 @@ public class MainActivity extends AppCompatActivity {
         finish();
     }
 
+    public void OnClickSendLocation(View view) {
+        FirebaseUtils.sendLocationMessage(longitude, latitude, "fakeUser");
+    }
+
     public void getLocation() {
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
         locationListener = new LocationListener() {

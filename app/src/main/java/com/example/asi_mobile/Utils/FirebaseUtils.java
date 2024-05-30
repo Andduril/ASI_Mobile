@@ -61,4 +61,14 @@ public class FirebaseUtils {
                     }
                 });
     }
+
+    public static void sendLocationMessage(Double lon, Double lat, String userId)
+    {
+        if (lon != null && lat != null) {
+            String content = "Ma localisation est : " + lon + ", " + lat;
+            FirebaseUtils.sendMessage(content, userId);
+        } else {
+            Log.i("Location", "failed");
+        }
+    }
 }
