@@ -4,14 +4,14 @@
     android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/textView_nom_recycler"
+        android:id="@+id/textView_content_recycler"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="TextView" />
 
     <TextView
-        android:id="@+id/textView_email_recycler"
+        android:id="@+id/textView_userId_recycler"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
