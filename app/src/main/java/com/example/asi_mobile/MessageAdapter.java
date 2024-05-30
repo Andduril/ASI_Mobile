@@ -1,4 +1,5 @@
 package com.example.asi_mobile;
+import com.example.asi_mobile.Models.Message;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -6,8 +7,6 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.example.asi_mobile.Models.Message;
 
 import java.util.List;
 

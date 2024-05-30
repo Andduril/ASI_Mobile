@@ -1,10 +1,6 @@
 package com.example.asi_mobile.Models;
 
-import android.text.format.DateFormat;
-
-import java.util.Calendar;
 import java.util.Date;
-import java.util.Locale;
 
 public class Message {
     String content;
@@ -28,11 +24,8 @@ public class Message {
         this.content = content;
     }
 
-    public String getTimestamp() {
-        Calendar cal = Calendar.getInstance(Locale.ENGLISH);
-        cal.setTimeInMillis(timestamp * 1000);
-        String date = DateFormat.format("dd-MM-yyyy", cal).toString();
-        return date;
+    public Long getTimestamp() {
+        return timestamp;
     }
 
     public void setTimestamp(Long timestamp) {

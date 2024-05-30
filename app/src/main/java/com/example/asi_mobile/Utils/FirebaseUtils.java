@@ -1,10 +1,10 @@
 package com.example.asi_mobile.Utils;
 
+import com.example.asi_mobile.Models.Message;
+import com.example.asi_mobile.Models.User;
 
 import android.util.Log;
 
-import com.example.asi_mobile.Models.Message;
-import com.example.asi_mobile.Models.User;
 import com.google.firebase.Timestamp;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.FirebaseDatabase;

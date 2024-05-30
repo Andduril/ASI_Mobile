@@ -1,45 +1,44 @@
 package com.example.asi_mobile;
+import com.example.asi_mobile.Models.Message;
 
+import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.asi_mobile.Models.Message;
-
+import java.util.Calendar;
+import java.util.Locale;
 import java.util.Objects;
 
 public class MessageViewHolder extends RecyclerView.ViewHolder {
-    //Autant d'attributs dans la classe que de widgets affichés (content, userId et timestamp : 3)
     private TextView contentTextView;
-    private TextView userIdTextView;
-    private TextView timestampTextView;
     private TextView contentConnectedUserTextView;
 
     public MessageViewHolder(@NonNull View itemView) {
         super(itemView);
 
         this.contentTextView = itemView.findViewById(R.id.textView_content_autreUser);
-        this.userIdTextView = itemView.findViewById(R.id.textView_userId);
-        this.timestampTextView = itemView.findViewById(R.id.textView_timestamp);
         this.contentConnectedUserTextView = itemView.findViewById(R.id.textView_content_connectedUser);
     }
 
     public void MettreAJourLigne(Message unMessage) {
         if (Objects.nonNull(unMessage)) {
+            Calendar cal = Calendar.getInstance(Locale.ENGLISH);
+            cal.setTimeInMillis(unMessage.getTimestamp() * 1000);
+            String date = DateFormat.format("dd-MM-yyyy", cal).toString();
+            String chaineAffiche = unMessage.getUserId() + " : " + unMessage.getContent() + " (" + date + ")";
             if (Objects.equals(unMessage.getUserId(), "fakeID"))//Si le userId est celui de l'utilisateur connecté
             {
-                this.contentConnectedUserTextView.setText(unMessage.getContent());
+                this.contentConnectedUserTextView.setText(chaineAffiche);
                 this.contentTextView.setText("");
             }
             else
             {
-                this.contentTextView.setText(unMessage.getContent());
+                this.contentTextView.setText(chaineAffiche);
                 this.contentConnectedUserTextView.setText("");
             }
-            this.userIdTextView.setText(unMessage.getUserId());
-            this.timestampTextView.setText(unMessage.getTimestamp());
         }
     }
 }

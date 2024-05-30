@@ -1,5 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name" translatable="false">ASI_mobile</string>
     <string name="enter_your_username">Enter your username</string>
     <string name="username">Username</string>
     <string name="connexion">Connection</string>
@@ -7,6 +7,5 @@
     <string name="send_message">Send message</string>
     <string name="quitter_le_chat">Leave the chat</string>
     <string name="message">Message</string>
-    <string name="textview" translatable="false">TextView</string>
     <string name="made_with">Made with ❤️</string>
 </resources>
