@@ -62,7 +62,7 @@ public class FirebaseUtils {
     public static void sendLocationMessage(Double lon, Double lat, String userId)
     {
         if (lon != null && lat != null) {
-            String content = "Ma localisation est : " + lon + ", " + lat;
+            String content = "GPS:(" + lon + "," + lat+ ")";
             FirebaseUtils.sendMessage(content, userId, true);
         } else {
             Log.i("Location", "failed");
