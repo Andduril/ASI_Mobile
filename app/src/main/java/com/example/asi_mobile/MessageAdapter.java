@@ -12,8 +12,11 @@ import java.util.List;
 
 public class MessageAdapter extends RecyclerView.Adapter<MessageViewHolder> {
     private final List<Message> messageList;
-    public MessageAdapter(List<Message> messages) {
+    private final String userKey;
+    public MessageAdapter(List<Message> messages, String userKey) {
         messageList = messages;
+        this.userKey = userKey;
+
     }
 
     @NonNull
@@ -26,7 +29,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MessageViewHolder holder, int position) {
-        holder.MettreAJourLigne(messageList.get(position));
+        holder.MettreAJourLigne(messageList.get(position), userKey);
     }
 
     @Override

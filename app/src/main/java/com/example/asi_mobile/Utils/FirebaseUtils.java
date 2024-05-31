@@ -45,8 +45,8 @@ public class FirebaseUtils {
 
     //////////////////////////////MESSAGE_MODEL/////////////////////////////
     // sendMessages
-    public static void sendMessage(String content, String userId) {
-        Message newMessage = new Message(content, userId);
+    public static void sendMessage(String content, String userId, Boolean isLocation) {
+        Message newMessage = new Message(content, userId, isLocation);
         DatabaseReference newMessageRef = messagesAccessor.push();
 
         newMessageRef.setValue(newMessage)
@@ -63,7 +63,7 @@ public class FirebaseUtils {
     {
         if (lon != null && lat != null) {
             String content = "Ma localisation est : " + lon + ", " + lat;
-            FirebaseUtils.sendMessage(content, userId);
+            FirebaseUtils.sendMessage(content, userId, true);
         } else {
             Log.i("Location", "failed");
         }

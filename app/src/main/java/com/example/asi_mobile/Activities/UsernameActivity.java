@@ -51,6 +51,7 @@ public class UsernameActivity extends AppCompatActivity {
     public void OnClickConnection(View view){
         String usernameInputContent = usernameInput.getText().toString();
         String emailInputContent = emailInput.getText().toString();
+        final Boolean[] userFound = {false};
         final int[] Count = {0};
         if(usernameInputContent.isEmpty() || emailInputContent.isEmpty()){
             AndroidUtils.print(this, "Please fill all fields");
@@ -71,13 +72,15 @@ public class UsernameActivity extends AppCompatActivity {
                         if(user.getName().equals(usernameInputContent) && user.getEmail().equals(emailInputContent)){
                             Log.d("USER FOUND", "USER KEY : " + userSnapshot.getKey());
                             //AndroidUtils.print(UsernameActivity.this, "User found");
+                            userFound[0] = true;
                             AndroidUtils.saveValue(UsernameActivity.this, "userKey", userSnapshot.getKey());
                             setInProgress(false);
                             startActivity(new Intent(UsernameActivity.this, MainActivity.class));
                             finish();
+                            break;
                         }
                     }
-                    if (Count[0] == 0){ //To check later
+                    if (Count[0] == 0 && !userFound[0]){ //To check later
                         Count[0]++;
                         AndroidUtils.print(UsernameActivity.this, "User not found creating new user");
                         DatabaseReference newUser = FirebaseUtils.addUser(usernameInputContent, emailInputContent);

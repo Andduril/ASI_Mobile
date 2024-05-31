@@ -19,10 +19,10 @@ public class MessageViewHolder extends RecyclerView.ViewHolder {
         this.contentConnectedUserTextView = itemView.findViewById(R.id.textView_content_connectedUser);
     }
 
-    public void MettreAJourLigne(Message unMessage) {
+    public void MettreAJourLigne(Message unMessage, String userKey) {
         if (Objects.nonNull(unMessage)) {
             String chaineAffiche = unMessage.getUserId() + " : " + unMessage.getContent() + " (" + unMessage.getFormatedDate() + ")";
-            if (Objects.equals(unMessage.getUserId(), "fakeID"))//Si le userId est celui de l'utilisateur connecté
+            if (Objects.equals(unMessage.getUserId(), userKey))//Si le userId est celui de l'utilisateur connecté
             {
                 this.contentConnectedUserTextView.setText(chaineAffiche);
                 this.contentTextView.setText("");

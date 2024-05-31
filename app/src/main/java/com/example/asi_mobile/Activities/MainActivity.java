@@ -48,11 +48,11 @@ public class MainActivity extends AppCompatActivity {
         message_saisi = findViewById(R.id.editText_message);
         messagesList = new ArrayList<>();
         database = FirebaseDatabase.getInstance("https://asi-mobile-1bc67-default-rtdb.europe-west1.firebasedatabase.app/");
-        //String userKey = AndroidUtils.getValue(this, "userKey");
-        //AndroidUtils.print(this, "User key: " + userKey);
+        String userKey = AndroidUtils.getValue(this, "userKey");
+        AndroidUtils.print(this, "User key: " + userKey);
 
         getDataFirebase();
-        messageAdapter = new MessageAdapter(messagesList);
+        messageAdapter = new MessageAdapter(messagesList, userKey);
         monRecyclerView.setAdapter(messageAdapter);
         monRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void OnClickSendMessage(View view) {
-        FirebaseUtils.sendMessage(message_saisi.getText().toString(), "fakeId");
+        FirebaseUtils.sendMessage(message_saisi.getText().toString(), AndroidUtils.getValue(this, "userKey"), false);
     }
 
     public void OnClickQuitterChat(View view) {
@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void OnClickSendLocation(View view) {
-        FirebaseUtils.sendLocationMessage(longitude, latitude, "fakeUser");
+        FirebaseUtils.sendLocationMessage(longitude, latitude, AndroidUtils.getValue(this, "userKey"));
     }
 
     public void getLocation() {

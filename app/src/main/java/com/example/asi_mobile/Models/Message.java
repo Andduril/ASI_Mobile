@@ -8,14 +8,16 @@ import java.util.Date;
 public class Message {
     String content, userId;
     Long timestamp;
+    Boolean isLocation;
 
     // constructeur vide pour firebase
     public Message() {}
 
-    public Message(String content, String userId) {
+    public Message(String content, String userId, Boolean isLocation) {
         this.userId = userId;
         this.content = content;
         this.timestamp = new Date().getTime();
+        this.isLocation = isLocation;
     }
 
     public String getContent() {
@@ -47,4 +49,11 @@ public class Message {
         @SuppressLint("SimpleDateFormat") SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         return formatter.format(date);
     };
+    public Boolean getIsLocation() {
+        return isLocation;
+    }
+    public void setIsLocation(Boolean isLocation) {
+        this.isLocation = isLocation;
+    }
+
 }
