@@ -133,6 +133,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void OnClickSendMessage(View view) {
         FirebaseUtils.sendMessage(message_saisi.getText().toString(), AndroidUtils.getValue(this, "userKey"), false, AndroidUtils.getValue(this, "userName"));
+        message_saisi.setText("");
     }
 
     public void OnClickQuitterChat(View view) {
