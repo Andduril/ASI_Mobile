@@ -9,7 +9,6 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="@string/textview"
-        android:onClick="OnClickMessageGPS"
         android:paddingBottom="10dp"
         android:textAlignment="textStart" />
 

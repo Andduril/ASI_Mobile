@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.Manifest;
-import android.annotation.SuppressLint;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
@@ -17,7 +16,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.asi_mobile.Models.Message;
@@ -54,7 +52,13 @@ public class MainActivity extends AppCompatActivity {
         AndroidUtils.print(this, "User key: " + userKey);
 
         getDataFirebase();
-        messageAdapter = new MessageAdapter(messagesList, userKey);
+        messageAdapter = new MessageAdapter(messagesList, userKey, new MessageAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(String message) {
+                //AndroidUtils.print(MainActivity.this, message);
+                OnClickMessageGPS(message);
+            }
+        });
         monRecyclerView.setAdapter(messageAdapter);
         monRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -86,17 +90,17 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                // Gérez l'erreur ici
+                AndroidUtils.print(MainActivity.this, "Erreur de récupération des messages");
+
             }
         });
     }
-    public void OnClickMessageGPS(View view) {
-        TextView otherUserMessage = findViewById(R.id.textView_content_autreUser);
-        String messageOtherUser = "GPS:(-122.084,37.421998333333335)";//otherUserMessage.getText().toString();
+    public void OnClickMessageGPS(String message) {
+        String clickedMessage = message;
         double Longitude = 0;
         double Latitude = 0;
-        //Log.d("perso", messageOtherUser);
-        //AndroidUtils.print(this, messageOtherUser);
+        //Log.d("perso", clickedMessage);
+        //AndroidUtils.print(this, clickedMessage);
         DatabaseReference rootRef = database.getReference();
         DatabaseReference messagesRef = rootRef.child("messages");
         messagesRef.addValueEventListener(new ValueEventListener() {
@@ -105,9 +109,8 @@ public class MainActivity extends AppCompatActivity {
                 for (DataSnapshot messageSnapshot : dataSnapshot.getChildren()) {
                     Message message = messageSnapshot.getValue(Message.class);
                     assert message != null;
-                    if (message.getContent().equals(messageOtherUser)) {
+                    if (message.getContent().equals(clickedMessage)) {
                         if (message.getIsLocation()) {
-                            // original message : Id le date :\nGPS:(long,lat)
                             String[] parts = message.getContent().split(":");
                             String[] gps = parts[1].split(",");
                             longitude = Double.parseDouble(gps[0].substring(1));
@@ -121,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
             }
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                // Gérez l'erreur ici
+                AndroidUtils.print(MainActivity.this, "Erreur de récupération du message avec les coordonnées GPS");
             }
         });
     }
