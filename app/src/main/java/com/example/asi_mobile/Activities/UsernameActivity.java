@@ -74,6 +74,7 @@ public class UsernameActivity extends AppCompatActivity {
                             //AndroidUtils.print(UsernameActivity.this, "User found");
                             userFound[0] = true;
                             AndroidUtils.saveValue(UsernameActivity.this, "userKey", userSnapshot.getKey());
+                            AndroidUtils.saveValue(UsernameActivity.this, "userName", usernameInputContent);
                             setInProgress(false);
                             startActivity(new Intent(UsernameActivity.this, MainActivity.class));
                             finish();
@@ -86,6 +87,7 @@ public class UsernameActivity extends AppCompatActivity {
                         DatabaseReference newUser = FirebaseUtils.addUser(usernameInputContent, emailInputContent);
                         Log.d("newUser", newUser.toString());
                         AndroidUtils.saveValue(UsernameActivity.this, "userKey", newUser.getKey());
+                        AndroidUtils.saveValue(UsernameActivity.this, "userName", usernameInputContent);
                         setInProgress(false);
                         startActivity(new Intent(UsernameActivity.this, MainActivity.class));
                         finish();

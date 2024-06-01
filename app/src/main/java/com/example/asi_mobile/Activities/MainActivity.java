@@ -49,6 +49,8 @@ public class MainActivity extends AppCompatActivity {
         messagesList = new ArrayList<>();
         database = FirebaseDatabase.getInstance("https://asi-mobile-1bc67-default-rtdb.europe-west1.firebasedatabase.app/");
         String userKey = AndroidUtils.getValue(this, "userKey");
+        String userName = AndroidUtils.getValue(this, "userName");
+
         AndroidUtils.print(this, "User key: " + userKey);
 
         getDataFirebase();
@@ -130,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void OnClickSendMessage(View view) {
-        FirebaseUtils.sendMessage(message_saisi.getText().toString(), AndroidUtils.getValue(this, "userKey"), false);
+        FirebaseUtils.sendMessage(message_saisi.getText().toString(), AndroidUtils.getValue(this, "userKey"), false, AndroidUtils.getValue(this, "userName"));
     }
 
     public void OnClickQuitterChat(View view) {
@@ -138,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void OnClickSendLocation(View view) {
-        FirebaseUtils.sendLocationMessage(longitude, latitude, AndroidUtils.getValue(this, "userKey"));
+        FirebaseUtils.sendLocationMessage(longitude, latitude, AndroidUtils.getValue(this, "userKey"), AndroidUtils.getValue(this, "userName"));
     }
 
     public void getLocation() {

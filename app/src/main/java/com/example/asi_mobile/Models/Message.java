@@ -6,18 +6,20 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Message {
-    String content, userId;
+    String content, userId, userName;
     Long timestamp;
     Boolean isLocation;
 
     // constructeur vide pour firebase
     public Message() {}
 
-    public Message(String content, String userId, Boolean isLocation) {
+    public Message(String content, String userId, Boolean isLocation, String userName) {
         this.userId = userId;
         this.content = content;
         this.timestamp = new Date().getTime();
         this.isLocation = isLocation;
+        this.userName = userName;
+
     }
 
     public String getContent() {
@@ -54,6 +56,12 @@ public class Message {
     }
     public void setIsLocation(Boolean isLocation) {
         this.isLocation = isLocation;
+    }
+    public String getUserName() {
+        return userName;
+    }
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
 }

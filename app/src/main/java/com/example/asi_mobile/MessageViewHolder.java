@@ -21,7 +21,7 @@ public class MessageViewHolder extends RecyclerView.ViewHolder {
 
     public void MettreAJourLigne(Message unMessage, String userKey) {
         if (Objects.nonNull(unMessage)) {
-            String chaineAffiche = unMessage.getUserId() + " le " + unMessage.getFormatedDate() + " :\n " + unMessage.getContent();
+            String chaineAffiche = unMessage.getUserName() + " le " + unMessage.getFormatedDate() + " :\n " + unMessage.getContent();
             if (Objects.equals(unMessage.getUserId(), userKey))//Si le userId est celui de l'utilisateur connecté
             {
                 this.contentConnectedUserTextView.setText(chaineAffiche);

@@ -45,8 +45,8 @@ public class FirebaseUtils {
 
     //////////////////////////////MESSAGE_MODEL/////////////////////////////
     // sendMessages
-    public static void sendMessage(String content, String userId, Boolean isLocation) {
-        Message newMessage = new Message(content, userId, isLocation);
+    public static void sendMessage(String content, String userId, Boolean isLocation, String userName) {
+        Message newMessage = new Message(content, userId, isLocation, userName);
         DatabaseReference newMessageRef = messagesAccessor.push();
 
         newMessageRef.setValue(newMessage)
@@ -59,11 +59,11 @@ public class FirebaseUtils {
                 });
     }
 
-    public static void sendLocationMessage(Double lon, Double lat, String userId)
+    public static void sendLocationMessage(Double lon, Double lat, String userId, String userName)
     {
         if (lon != null && lat != null) {
             String content = "GPS:(" + lon + "," + lat+ ")";
-            FirebaseUtils.sendMessage(content, userId, true);
+            FirebaseUtils.sendMessage(content, userId, true, userName);
         } else {
             Log.i("Location", "failed");
         }

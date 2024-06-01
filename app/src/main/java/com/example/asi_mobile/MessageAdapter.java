@@ -48,26 +48,5 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageViewHolder> {
     public int getItemCount() {
         return messageList.size();
     }
-//
-//    static class MessageViewHolder extends RecyclerView.ViewHolder {
-//        private final TextView contentTextView, contentConnectedUserTextView;
-//
-//        public MessageViewHolder(@NonNull View itemView) {
-//            super(itemView);
-//
-//            this.contentTextView = itemView.findViewById(R.id.textView_content_autreUser);
-//            this.contentConnectedUserTextView = itemView.findViewById(R.id.textView_content_connectedUser);
-//        }
-//
-//        public void bind(final Message message, final OnItemClickListener listener) {
-//            if (message.getUserId().equals(userKey)) {
-//                contentTextView.setText(message.getContent());
-//                contentConnectedUserTextView.setText("");
-//            } else {
-//                contentTextView.setText("");
-//                contentConnectedUserTextView.setText(message.getContent());
-//            }
-//            itemView.setOnClickListener(v -> listener.onItemClick(message.getContent()));
-//        }
-//    }
+
 }
