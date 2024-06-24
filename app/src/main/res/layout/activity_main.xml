@@ -4,26 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".Activities.MainActivity">
 
     <Button
-        android:id="@+id/AddUserBtn"
+        android:id="@+id/SendMessageBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:onClick="onClickAddUser"
-        android:text="Add User"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:onClick="OnClickSendMessage"
+        android:text="@string/send_message"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/SendLocationBtnId" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView_chat"
         android:layout_width="0dp"
-        android:layout_height="354dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="1dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginBottom="21dp"
+        app:layout_constraintBottom_toTopOf="@+id/editText_message"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -33,10 +35,33 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="4dp"
         android:onClick="OnClickQuitterChat"
-        android:text="Quitter le chat"
+        android:text="@string/quitter_le_chat"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/SendLocationBtnId" />
+
+
+    <EditText
+        android:id="@+id/editText_message"
+        android:layout_width="0dp"
+        android:layout_height="87dp"
+        android:layout_marginBottom="116dp"
+        android:ems="10"
+        android:inputType="text"
+        android:hint="@string/message"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/SendLocationBtnId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="OnClickSendLocation"
+        android:text="@string/send_my_location"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_message" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
